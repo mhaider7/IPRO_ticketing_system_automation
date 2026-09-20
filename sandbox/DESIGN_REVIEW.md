@@ -24,6 +24,12 @@ The following fields make testing explicit but may need a different mapping in r
 - `DecisionReason`
 - `AssignedTo`
 
+## Confirmed product direction
+
+Hawk remains the required student-facing interface in the final product. This sandbox MVP does not modify or connect the widget yet; it provides the ticket and feed API that Hawk will use.
+
+The planned integration keeps one ticket ID per Hawk conversation, appends later student messages to that ticket's feed, displays pipeline or technician replies from the feed, and provides a technician-handoff action without deleting the ticket history.
+
 ## Decisions requested from the team
 
 1. Should medium confidence create a draft for human approval, or post automatically?
@@ -39,7 +45,7 @@ The following fields make testing explicit but may need a different mapping in r
 - Real student or OTS data
 - RAG, embedding, vector database, and LLM code
 - Automatic response policy
-- Chat-widget integration
+- Hawk chatbot integration code (planned next phase; Hawk remains in the final product)
 - Webhook retries and simulated outages
 - Multi-process file locking
 - Deployment or public hosting
