@@ -1,6 +1,6 @@
 # TDX Mock Sandbox
 
-This service reproduces the small part of TeamDynamix (TDX) needed by the IPRO ticket-response pipeline. It is intentionally local, uses fictional test data, and does not require access to the university's live ticketing system.
+This service reproduces the small part of TeamDynamix (TDX) needed to develop Hawk's conversation and technician-handoff flow. It is intentionally local, uses fictional test data, and does not require access to the university's live ticketing system. Hawk is the current product priority; this API supports it and is not a standalone student experience.
 
 ## Current capabilities
 
@@ -13,6 +13,8 @@ This service reproduces the small part of TeamDynamix (TDX) needed by the IPRO t
 - Expose interactive OpenAPI documentation through FastAPI.
 
 The service does not include authentication or communicate with any real Illinois Tech system. All included identities use the reserved `.test` domain.
+
+The existing Hawk widget is a visual prototype with hard-coded sample answers. It is not connected to this service. Do not treat its answers or cited URLs as verified support guidance.
 
 ## Setup
 
@@ -52,6 +54,18 @@ python -m pytest sandbox/tests
 5. An approved response is added through `POST /tickets/{id}/feed`.
 6. The sandbox emits `FeedEntryAdded`, including the entry's author type.
 7. The pipeline ignores events whose author is `pipeline`, preventing self-reply loops.
+
+## Hawk-first integration milestone
+
+The next demo should use fictional student details and the local sandbox:
+
+1. Hawk sends the first student issue to `POST /tickets` and keeps the returned ticket ID for that conversation.
+2. Hawk sends later student messages to `POST /tickets/{id}/feed` using the same ID.
+3. Hawk reads `GET /tickets/{id}` to display a test pipeline or technician reply from the feed. The display must distinguish student, pipeline, and human authors.
+4. A technician-handoff action updates the ticket's assignment, status, and action decision. The exact handoff behavior still needs team approval.
+5. Closing or restarting the widget changes only its visible session; it does not delete the saved ticket.
+
+Use a clearly labeled test reply for this milestone. Connecting an evidence source or allowing automatic answers requires a team-approved response policy and verified support content.
 
 ## API summary
 

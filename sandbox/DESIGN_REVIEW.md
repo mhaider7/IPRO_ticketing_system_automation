@@ -1,6 +1,6 @@
 # Sandbox MVP Design Review
 
-This file separates implemented mechanics from product-policy decisions that still need team approval.
+This file separates implemented mechanics, the proposed Hawk-first work sequence, and product-policy decisions that still need team approval.
 
 ## Implemented mechanics
 
@@ -24,11 +24,21 @@ The following fields make testing explicit but may need a different mapping in r
 - `DecisionReason`
 - `AssignedTo`
 
-## Confirmed product direction
+## Current working direction
 
-Hawk remains the required student-facing interface in the final product. This sandbox MVP does not modify or connect the widget yet; it provides the ticket and feed API that Hawk will use.
+The team appears to be prioritizing Hawk as the student-facing product. This sandbox MVP does not modify or connect the widget yet; it provides a ticket and feed API that Hawk can use. Confirm the priority and user flow with the full team before treating them as final product decisions.
 
-The planned integration keeps one ticket ID per Hawk conversation, appends later student messages to that ticket's feed, displays pipeline or technician replies from the feed, and provides a technician-handoff action without deleting the ticket history.
+The proposed integration keeps one ticket ID per Hawk conversation, appends later student messages to that ticket's feed, displays pipeline or technician replies from the feed, and provides a technician-handoff action without deleting the ticket history.
+
+## Proposed next milestone: one Hawk conversation
+
+1. Connect Hawk's first message to `POST /tickets` and retain the returned ID.
+2. Append subsequent student messages through `POST /tickets/{id}/feed`.
+3. Read the feed through `GET /tickets/{id}` and show a clearly labeled test reply from the pipeline or a technician.
+4. Demonstrate a technician handoff on the same ticket after the team chooses the exact status, assignment, and action behavior.
+5. Check that closing or restarting the widget does not erase the ticket or create duplicate tickets.
+
+This is the next integration target, not a claim that Hawk and the sandbox are already connected. The widget currently uses hard-coded demonstration answers; they should not become production guidance without source and policy review.
 
 ## Decisions requested from the team
 
@@ -45,7 +55,7 @@ The planned integration keeps one ticket ID per Hawk conversation, appends later
 - Real student or OTS data
 - RAG, embedding, vector database, and LLM code
 - Automatic response policy
-- Hawk chatbot integration code (planned next phase; Hawk remains in the final product)
+- Additional channels such as email ingestion
 - Webhook retries and simulated outages
 - Multi-process file locking
 - Deployment or public hosting

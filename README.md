@@ -1,10 +1,10 @@
 # IPRO Ticketing System Automation
 
-This IPRO project explores evidence-grounded automation for routine university support tickets. The intended system retrieves relevant procedures, assesses confidence and action risk, responds to safe requests, and routes uncertain or restricted requests to a human technician.
+This IPRO project is currently prioritizing Hawk, a student-facing OTS support chatbot. The intended experience lets a student describe an issue, continue a conversation, receive guidance when the team-approved response policy permits it, and reach a human technician when needed. Ticket handling and evidence-grounded automation support that experience.
 
 ## Repository contents
 
-- [`sandbox/`](sandbox/) contains the mock TeamDynamix service and its architecture document.
-- [`IIT_Chatbot_UI_Design/`](IIT_Chatbot_UI_Design/) contains an early student-facing support-widget prototype.
+- [`IIT_Chatbot_UI_Design/`](IIT_Chatbot_UI_Design/) contains an early Hawk support-widget prototype. Its current answers are hard-coded demonstration content, not a connected or approved support knowledge base.
+- [`sandbox/`](sandbox/) contains a mock TeamDynamix service, design review, and architecture document for testing Hawk's ticket and conversation flow.
 
-The mock sandbox lets the team develop against a controlled ticket API without using live student information or requiring access to a real TeamDynamix instance. See [`sandbox/README.md`](sandbox/README.md) for setup and test instructions.
+The next integration milestone is a local Hawk conversation that creates one ticket, appends follow-up messages to that ticket, displays a test pipeline or technician reply, and requests a technician handoff. The mock sandbox makes that flow testable without live student information or real TeamDynamix access. The widget is not connected to the sandbox yet. See [`sandbox/README.md`](sandbox/README.md) for setup and [`sandbox/DESIGN_REVIEW.md`](sandbox/DESIGN_REVIEW.md) for the proposed sequence and open decisions.
