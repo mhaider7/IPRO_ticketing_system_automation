@@ -1,6 +1,6 @@
 # Hawk backend plan
 
-This is a repository summary of the team's agreed `OTS_Chatbot_Backend_Guide.pdf`. The PDF is the source for the full six-part assignment and detailed acceptance criteria. This file makes the current repository scope clear; it is not an implementation status report.
+This is a repository summary of the team's agreed `OTS_Chatbot_Backend_Guide.pdf`. The PDF is the source for the full six-part assignment and detailed acceptance criteria. The final section records which integration milestone is currently implemented.
 
 ## Student flow for this version
 
@@ -33,6 +33,8 @@ The guide defines escalation reasons as `fixed_topic`, `low_confidence`, and `us
 
 ## Current repository state
 
-The Hawk widget is a demonstration interface with hard-coded answer text and placeholder escalation behavior. The repository does not yet contain the backend described above. The existing `sandbox/` service implements a different ticket API (`/tickets` and feed routes); it does not implement `/api/chat`, `/api/escalate`, retrieval, Ollama integration, or email drafting. Do not wire it into Hawk as a substitute for the agreed backend contract.
+The first connected demo is implemented in [`ots-chatbot-backend/`](ots-chatbot-backend/README.md) and `IIT_Chatbot_UI_Design/index.html`. It provides all three agreed routes, browser conversation history, test escalation routing, one optional clarification, and an editable/copyable email draft. The browser calls the API for replies and drafts; it does not contain a knowledge base. The original `.dc.html` design reference is preserved separately.
 
-The next useful implementation milestone is a small backend skeleton with the three agreed routes and deterministic test responses, followed by replacing the widget's hard-coded lookup and handoff functions with those calls. Retrieval, model generation, and source review can then be connected behind the same contract.
+The service uses explicitly labeled deterministic replies and a test email template. Verified source ingestion, ChromaDB retrieval, Ollama generation, real confidence checks, and model-generated email summaries are not implemented yet. These are the next backend integration steps behind the existing contract.
+
+The existing `sandbox/` service remains a separate ticket experiment. It is not part of the running Hawk demo.

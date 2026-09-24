@@ -8,3 +8,5 @@ __pycache__/
 .thumbnail
 sandbox/data/tickets.json
 sandbox/data/events.json
+node_modules/
+ots-chatbot-backend/.browser-output/

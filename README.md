@@ -4,8 +4,9 @@ This IPRO project is building Hawk, a student-facing OTS support chatbot. Under 
 
 ## Repository contents
 
-- [`IIT_Chatbot_UI_Design/`](IIT_Chatbot_UI_Design/) contains an early Hawk support-widget prototype. Its current answers are hard-coded demonstration content, not a connected or approved support knowledge base.
+- [`IIT_Chatbot_UI_Design/`](IIT_Chatbot_UI_Design/) contains the connected Hawk browser interface and the original design reference.
+- [`ots-chatbot-backend/`](ots-chatbot-backend/README.md) contains the working API skeleton and deterministic test service. Follow its README to run the complete chat-to-email-draft demo locally.
 - [`HAWK_BACKEND_PLAN.md`](HAWK_BACKEND_PLAN.md) summarizes the agreed chatbot backend scope, API contract, and next integration milestone.
 - [`sandbox/`](sandbox/) contains an earlier mock TeamDynamix service and its design notes. It is separate exploratory work and is not required for the agreed chatbot version.
 
-The agreed version does not authenticate students, collect personal student identifiers, create tickets, or send email on a student's behalf. The current widget is not connected to a chatbot backend yet.
+The agreed version does not authenticate students, collect personal student identifiers, create tickets, or send email on a student's behalf. The connected demo now supports conversation history, escalation, an editable email draft, and copying. Replies are test placeholders; real retrieval and Ollama integration remain the next backend work.

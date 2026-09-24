@@ -14,7 +14,7 @@ This service is an earlier mock TeamDynamix (TDX) ticketing experiment. It is in
 
 The service does not include authentication or communicate with any real Illinois Tech system. All included identities use the reserved `.test` domain.
 
-The existing Hawk widget is a visual prototype with hard-coded sample answers. It is not connected to this service. Do not treat its answers or cited URLs as verified support guidance.
+The connected Hawk demo now uses the separate [`../ots-chatbot-backend/`](../ots-chatbot-backend/README.md) API. It uses labeled test responses and is not connected to this ticket service. The original `.dc.html` widget remains a design reference.
 
 ## Setup
 
