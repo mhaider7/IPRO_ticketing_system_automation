@@ -1,10 +1,11 @@
 # IPRO Ticketing System Automation
 
-This IPRO project is currently prioritizing Hawk, a student-facing OTS support chatbot. The intended experience lets a student describe an issue, continue a conversation, receive guidance when the team-approved response policy permits it, and reach a human technician when needed. Ticket handling and evidence-grounded automation support that experience.
+This IPRO project is building Hawk, a student-facing OTS support chatbot. Under the team's agreed backend guide, Hawk will answer from retrieved OTS information and use recent conversation context for follow-up questions. For topics that require a person, low-confidence answers, or an explicit request for help, it will prepare an email draft that the student can copy and send to OTS.
 
 ## Repository contents
 
 - [`IIT_Chatbot_UI_Design/`](IIT_Chatbot_UI_Design/) contains an early Hawk support-widget prototype. Its current answers are hard-coded demonstration content, not a connected or approved support knowledge base.
-- [`sandbox/`](sandbox/) contains a mock TeamDynamix service, design review, and architecture document for testing Hawk's ticket and conversation flow.
+- [`HAWK_BACKEND_PLAN.md`](HAWK_BACKEND_PLAN.md) summarizes the agreed chatbot backend scope, API contract, and next integration milestone.
+- [`sandbox/`](sandbox/) contains an earlier mock TeamDynamix service and its design notes. It is separate exploratory work and is not required for the agreed chatbot version.
 
-The next integration milestone is a local Hawk conversation that creates one ticket, appends follow-up messages to that ticket, displays a test pipeline or technician reply, and requests a technician handoff. The mock sandbox makes that flow testable without live student information or real TeamDynamix access. The widget is not connected to the sandbox yet. See [`sandbox/README.md`](sandbox/README.md) for setup and [`sandbox/DESIGN_REVIEW.md`](sandbox/DESIGN_REVIEW.md) for the proposed sequence and open decisions.
+The agreed version does not authenticate students, collect personal student identifiers, create tickets, or send email on a student's behalf. The current widget is not connected to a chatbot backend yet.

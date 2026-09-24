@@ -1,6 +1,6 @@
 # TDX Mock Sandbox
 
-This service reproduces the small part of TeamDynamix (TDX) needed to develop Hawk's conversation and technician-handoff flow. It is intentionally local, uses fictional test data, and does not require access to the university's live ticketing system. Hawk is the current product priority; this API supports it and is not a standalone student experience.
+This service is an earlier mock TeamDynamix (TDX) ticketing experiment. It is intentionally local, uses fictional test data, and does not require access to the university's live ticketing system. The team's agreed Hawk backend version uses a chat and copyable email-draft flow; it does not depend on this ticket API. See [`../HAWK_BACKEND_PLAN.md`](../HAWK_BACKEND_PLAN.md) for the current plan.
 
 ## Current capabilities
 
@@ -55,17 +55,9 @@ python -m pytest sandbox/tests
 6. The sandbox emits `FeedEntryAdded`, including the entry's author type.
 7. The pipeline ignores events whose author is `pipeline`, preventing self-reply loops.
 
-## Hawk-first integration milestone
+## Relationship to Hawk
 
-The next demo should use fictional student details and the local sandbox:
-
-1. Hawk sends the first student issue to `POST /tickets` and keeps the returned ticket ID for that conversation.
-2. Hawk sends later student messages to `POST /tickets/{id}/feed` using the same ID.
-3. Hawk reads `GET /tickets/{id}` to display a test pipeline or technician reply from the feed. The display must distinguish student, pipeline, and human authors.
-4. A technician-handoff action updates the ticket's assignment, status, and action decision. The exact handoff behavior still needs team approval.
-5. Closing or restarting the widget changes only its visible session; it does not delete the saved ticket.
-
-Use a clearly labeled test reply for this milestone. Connecting an evidence source or allowing automatic answers requires a team-approved response policy and verified support content.
+These routes remain available for sandbox experimentation and tests. They are not the Hawk backend routes specified in the team's guide. This service neither generates grounded chat answers nor drafts support emails. The current Hawk milestone is described in [`../HAWK_BACKEND_PLAN.md`](../HAWK_BACKEND_PLAN.md).
 
 ## API summary
 
