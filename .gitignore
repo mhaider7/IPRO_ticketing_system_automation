@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+*.egg-info/
+.env
+.DS_Store
+.thumbnail
+sandbox/data/tickets.json
+sandbox/data/events.json
+node_modules/
+ots-chatbot-backend/.browser-output/
